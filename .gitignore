@@ -3,13 +3,14 @@
 
 # Ignore Gradle build output directory
 build
-
+bin/
 # Package Files 
 *.jar
 # ignore project files
 .classpath
 .project
 .settings
+transactions.csv
     
 # Compiled class file
 *.class

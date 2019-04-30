@@ -8,22 +8,61 @@
 
 plugins {
     // Apply the java-library plugin to add support for Java Library
-    id 'java-library'
+    id 'application'
+    id 'com.adarshr.test-logger' version '1.6.0'
+    
 }
 
+run{
+    standardInput = System.in
+}
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
+testlogger {
+    // pick a theme - mocha, standard, plain, mocha-parallel, standard-parallel or plain-parallel
+    theme 'standard'
 
+    // set to false to disable detailed failure logs
+    showExceptions true
+
+    // set threshold in milliseconds to highlight slow tests
+    slowThreshold 2000
+
+    // displays a breakdown of passes, failures and skips along with total duration
+    showSummary true
+
+    // set to false to hide passed tests
+    showPassed true
+
+    // set to false to hide skipped tests
+    showSkipped true
+
+    // set to false to hide failed tests
+    showFailed true
+
+    // enable to see standard out and error streams inline with the test results
+    showStandardStreams false
+
+    // set to false to hide passed standard out and error streams
+    showPassedStandardStreams true
+
+    // set to false to hide skipped standard out and error streams
+    showSkippedStandardStreams true
+
+    // set to false to hide failed standard out and error streams
+    showFailedStandardStreams true
+}
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:26.0-jre'
-
+    
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+    
+    compile 'org.apache.commons:commons-csv:1.6'
+    
 }
+
+
+mainClassName = 'au.com.mebank.analyser.RunApp' 
