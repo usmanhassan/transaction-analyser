@@ -43,7 +43,7 @@ Based on the file and criteria programs will execute and provide the following o
 
 Please refer to above image
 
-##Running the tests
+## Running the tests
 
 ```
 gradlew test --rerun-tasks
